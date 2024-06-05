@@ -1,0 +1,80 @@
+ body {
+    background-color: beige;
+    width: 100vw;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: white;
+    width: 100%;
+    flex: 1;
+}
+
+h1, h2 {
+    width: 100%;
+    text-align: center;
+    margin: 0px auto 10px;
+}
+
+h3 {
+    font-size: 2rem; 
+}
+main {
+    background-color: beige;
+    flex: 9;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 10 auto;
+
+}
+
+input {
+    margin-bottom: 10px;
+    height: 50px;
+    width: 500px;
+}
+
+.respuesta {
+    background-color: yellow;
+    width: 500px;
+    height: 50px;
+    font-size: 18px;
+}
+
+button {
+    flex-basis: 150px;
+    height: 30px;
+}
+.enlinea2 {
+    display: flex;
+    margin: 10px 10px;
+    width: 400px;
+    justify-content: space-evenly;
+}
+
+h4 {
+    font-size: 1.5rem;
+}
+
+strong {
+    font-size: 2rem;
+    width: 300px;
+}
+
+.contadorMal {
+    color: red;
+}
+
+.contadorBien {
+    color: green;
+}
+
+footer {
+    background-color: blue;
+}
