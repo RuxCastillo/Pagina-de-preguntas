@@ -2,7 +2,6 @@
     background-color: beige;
     width: 100vw;
     margin: 0;
-    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -42,8 +41,8 @@ input {
 
 .respuesta {
     background-color: yellow;
-    width: 500px;
-    height: 50px;
+    width: 900px;
+    height: 500px;
     font-size: 18px;
 }
 
@@ -77,4 +76,22 @@ strong {
 
 footer {
     background-color: blue;
+}
+
+.centrado {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.espaciador {
+    height: 100px;
+}
+.espaciador2 {
+    height: 150px;
+}
+
+#submitPregunta {
+    display: block;
+    margin: 20px auto;
+    
 }

@@ -1,62 +1,75 @@
+import express from "express";
+import bodyParser from "body-parser";
+import pg from "pg";
 
-const pregunta = document.querySelector("#pregunta");
-const miRespuesta = document.querySelector("#miRespuesta");
-const otraPregunta = document.querySelector("#otraPregunta");
-const botonSolucion = document.querySelector("#botonSolucion");
-const showRespuesta = document.querySelector("#showRespuesta");
-const divBotones = document.querySelector("#divBotones");
-const bienBoton = document.querySelector("#bien");
-const bienContador = document.querySelector(".contadorBien")
-let contadorBien = 1;
-const malBoton = document.querySelector("#mal");
-const malContador = document.querySelector(".contadorMal");
-let contadorMal = 1;
-let numeroRandom = 0;
+const app = express();
+const port = 3000;
+const API_URL = ""
+let todoDataBase;
+let laCategoria;
 
-
-otraPregunta.addEventListener("click", () => {
-    numeroRandom = 0;
-    let randomPreguntas = Math.floor(Math.random() * Preguntas.length);
-    console.log(randomPreguntas);
-    console.log("botonSolucion");
-    pregunta.innerText = Preguntas[randomPreguntas].pregunta;
-    numeroRandom = randomPreguntas;
-     
+const db = new pg.Client({
+    user: process.env.USER,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    password: process.env.PASSWORD,
+    port: process.env.PORT,
 });
 
-botonSolucion.addEventListener("click", () => {
-    console.log("botonSolucion");
-    showRespuesta.innerText = Preguntas[numeroRandom].respuesta;
+db.connect();
+
+db.query("SELECT * FROM todaslaspreguntas", (err, res) => {
+    if(err) {
+        console.error("Error executing query", err.stack);
+    } else {
+        todoDataBase = res.rows;
+        console.log(todoDataBase)
+    }
+
 })
 
-malBoton.addEventListener("click", () => {
-    console.log("mal");
-    malContador.innerText = contadorMal++
-    console.log(contadorMal)
+function enviandoUnaPregunta() {
+    let datosFiltrados = todoDataBase.filter((item) => {return (item.categoria === laCategoria)});
+    let numRan = Math.floor(Math.random() * datosFiltrados.length);
+    let resultado = datosFiltrados[numRan]
+    console.log(datosFiltrados, numRan, resultado, laCategoria)
+    return resultado
+}
 
+app.use(express.static("./public"));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+    let envio = enviandoUnaPregunta()
+    res.render("index.ejs", {
+        enDb: envio
+    });
 });
 
-bienBoton.addEventListener("click", () => {
-    console.log("bien");
-    bienContador.innerText = contadorBien++
-});
+app.get("/numeroRandomBoton", (req, res) => {
+    console.log(req.query)
+    laCategoria = req.query.categoria;
+    console.log("le diste al boton otraPregunta")
+    let envio2 = enviandoUnaPregunta();
+    res.send({
+        enDb: envio2,
+    })
+    
+})
+
+app.post("/agregarPregunta", async (req, res) => {
+    const datos = req.body
+    console.log(datos);
+
+
+    const result = await db.query(
+        "INSERT INTO todaslaspreguntas (preguntas, respuestas, categoria) VALUES ($1, $2, $3)",[datos.pregunta, datos.respuesta, datos.categoria]);
+
+})
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`)
+})

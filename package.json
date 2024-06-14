@@ -1,0 +1,20 @@
+{
+  "name": "pagina-de-preguntas",
+  "version": "1.0.0",
+  "description": "Estoy creando una pagina la cual me permita estudiar de manera mas eficiente, para acelerar mi aprendizaje.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "RuxCastillo",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}

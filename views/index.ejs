@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charset="utf-8">
+            <link rel="stylesheet" href="/style.css" />
+            <title>Preguntas para estudiar</title>
+        </head>
+        <body>
+
+            <header>
+                <h1>Estudia WebDev App</h1>
+                <h2>¡Tu puedes, vamos a por nuestro trabajo!</h2>
+                <script></script>
+
+            </header>
+            <main>
+                <h3 id="pregunta">¿Que pregunta tocara?</h3>
+                <input id="miRespuesta" type="text" />
+                <div class="enlinea2">
+                    <button id="otraPregunta" type="submit" value="GET" formaction="/numeroRandomBoton">Otra Pregunta</button>
+                    <button id="botonSolucion">Ver Respuesta</button>
+                </div>
+                <p class="respuesta" id="showRespuesta">Aqui va a aparecer la respuesta</p>
+                <div id="divBotones" class="enlinea2">
+                    <button id="mal" class="enlinea">Mal</button>
+                    <button id="bien" class="enlinea">Bien</button>
+                </div>
+                <h4>Contador</h4>
+                <p><strong><span class="contadorMal">0</span>  -  <span class="contadorBien">0</span></strong></p>
+                
+                <div class="espaciador">
+                    <select id="escogeCategoria">
+                        <option id="todo">Todo</option>
+                        <option id="jsengeneralybasico">Js en general y basico</option>
+                        <option id="eventos">Eventos</option>
+                        <option id="methods">Methods</option>
+                        <option id="react">React</option>
+                        <option id="basededatos">Base de datos</option>
+                        <option id="ejs">ejs</option>
+                        <option id="jquery">JQuery</option>
+                        <option id="algoritmosydatastructure">Algoritmos y estructura de datos</option>
+                        <option id="css">CSS</option>
+                        <option id="html">HTML</option>
+                        <option id="webdesign">Web Design</option>
+                        <option id="dom">DOM</option>
+                        <option id="flexbox">Flexbox</option>
+                        <option id="grid">Grid</option>
+                        <option id="jsavanzado">Js avanzado</option>
+                        <option id="terminales">Terminales</option>
+                        <option id="backend">Backend</option>
+                        <option id="node">Node</option>
+                        <option id="express">Express</option>
+                        <option id="gitgithub">Git y Github</option>
+                        <option id="api">API</option>
+                        <option id="security">Auth y security</option>
+                        <option id="Tips and Tricks">Tips and Tricks</option>
+                        <option id="sincategoria">Sin categoria</option>
+                    </select>
+                </div>
+
+                <div class="agregarPreguntas">
+                        <h4 class="centrado">Agrega una pregunta</h4>
+                        <h4>Pregunta:</h4>
+                        <input type="text" id="nuevaPregunta" name="nuevaPregunta2" />
+                        <h4>Respuesta:</h4>
+                        <input type="text" id="nuevaRespuesta" name="nuevaRespuesta2" />
+
+
+                <div class="espaciador2">
+                    <h4>Categoria</h4>
+                    <select id="escogeCategoria2" name="nuevaCategoria">
+                        <option id="todo2">Todo</option>
+                        <option id="jsengeneralybasico2">Js en general y basico</option>
+                        <option id="eventos2">Eventos</option>
+                        <option id="methods2">Methods</option>
+                        <option id="react2">React</option>
+                        <option id="basededatos2">Base de datos</option>
+                        <option id="ejs2">ejs</option>
+                        <option id="jquery2">JQuery</option>
+                        <option id="algoritmosydatastructure2">Algoritmos y estructura de datos</option>
+                        <option id="css2">CSS</option>
+                        <option id="html2">HTML</option>
+                        <option id="webdesign2">Web Design</option>
+                        <option id="dom2">DOM</option>
+                        <option id="flexbox2">Flexbox</option>
+                        <option id="grid2">Grid</option>
+                        <option id="jsavanzado2">Js avanzado</option>
+                        <option id="terminales2">Terminales</option>
+                        <option id="backend2">Backend</option>
+                        <option id="node2">Node</option>
+                        <option id="express2">Express</option>
+                        <option id="gitgithub2">Git y Github</option>
+                        <option id="api2">API</option>
+                        <option id="security2">Auth y security</option>
+                        <option id="Tips2 and Tricks">Tips and Tricks</option>
+                        <option id="sincategoria2">Sin categoria</option>
+
+                    </select>
+                </div>
+
+    <button type="submit" id="submitPregunta" formaction="/agregarPregunta">Agregar Pregunta al Array</button>
+                </div>
+            </main>
+
+            <script src="./preguntas.js"></script>
+            <script src="./index.js"></script>
+        </body>
+    </html>
